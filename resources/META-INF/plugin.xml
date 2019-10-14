@@ -1,0 +1,37 @@
+<idea-plugin>
+  <id>com.your.company.unique.plugin.id</id>
+  <name>MyPlugin</name>
+  <version>1.0</version>
+  <vendor email="yaochenguang@dianwoda.com" url="http://www.dianwoda.com">dianwoda</vendor>
+
+  <description><![CDATA[
+      这是一个测试的插件，用来静态扫描代码，进行检测。这里我也不知道为什么需要40个以上的字符，我凑够了<br>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      这里也需要40个字以上的字符，那就随便凑点。首先添加了简单的@Value的检测，判断是否有不正确的<br>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="Polaris.MyPlugin" class="com.polaris.plugin.MyPlugin" text="MyPlugin"
+      description="IdeaPlugin">
+      <add-to-group group-id="ToolbarRunGroup" anchor="first"/>
+    </action>
+  </actions>
+
+</idea-plugin>
