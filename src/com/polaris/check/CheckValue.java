@@ -22,7 +22,7 @@ public class CheckValue {
 
     private static final String PREFIX = "@Value";
 
-    public static String checkValue(String path){
+    public static String checkValue(String path) {
         res = new StringBuffer();
         doCheck(path);
         return res.toString();
@@ -31,9 +31,10 @@ public class CheckValue {
 
     private static void doCheck(String path) {
         File[] files = new File(path).listFiles();
-        if(Objects.isNull(files)) {
-            return ;
+        if (Objects.isNull(files)) {
+            return;
         }
+
         for (File file : files) {
             if (file.isDirectory()) {
                 doCheck(file.getPath());
@@ -55,11 +56,11 @@ public class CheckValue {
         BufferedReader read = new BufferedReader(inputStreamReader);
         String line;
         while ((line = read.readLine()) != null) {
-            if(valid(line)) {
+            if (valid(line)) {
                 Matcher part = Pattern.compile(PART).matcher(line);
-                if(part.find()){
+                if (part.find()) {
                     Matcher right = Pattern.compile(PART_RIGHT).matcher(line);
-                    if(right.find()) {
+                    if (right.find()) {
                         res.append("Right: ").append(line).append("\n");
                     } else {
                         res.append("Wrong: ").append(line).append("\n");
@@ -73,7 +74,7 @@ public class CheckValue {
     }
 
     private static boolean valid(String line) {
-        line =line.trim();
+        line = line.trim();
         return line.startsWith(PREFIX);
     }
 }

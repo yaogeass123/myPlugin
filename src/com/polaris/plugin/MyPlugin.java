@@ -1,6 +1,6 @@
 package com.polaris.plugin;
 
-import static com.polaris.check.CheckValue.*;
+import static com.polaris.check.CheckValue.checkValue;
 
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -16,9 +16,10 @@ public class MyPlugin extends AnAction {
     @Override
     public void actionPerformed(AnActionEvent e) {
         String path = Objects.requireNonNull(e.getProject()).getBasePath();
-        System.out.println(path);
         String res = checkValue(path);
-        System.out.println(res);
-        Messages.showMessageDialog(res , "检查结果", Messages.getInformationIcon());
+        if ("".equals(res)) {
+            res = "没有检测到目标值";
+        }
+        Messages.showMessageDialog(res, "检查结果", Messages.getInformationIcon());
     }
 }
